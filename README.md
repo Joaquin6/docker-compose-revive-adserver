@@ -1,6 +1,6 @@
 # Docker-Revive-Adserver
 ## 介绍
-该项目帮助您通过docker进行快速部署revive-adserver
+这个小项目的用途就是通过docker容器快速部署revive-adserver-5.0.0
 
 ## Requirements
 - **docker** (https://docs.docker.com/engine/installation/linux/debian/)  
