@@ -17,6 +17,12 @@ services:
       MYSQL_DATABASE: revive5
       MYSQL_USER: revive
       MYSQL_PASSWORD: 123456
+  
+  memcached:
+    image: memcached:1.5-alpine
+    ports: 
+      - "11211:11211"
+    restart: always
 
   revive:
     depends_on:
@@ -25,7 +31,7 @@ services:
     container_name: revive-adserver-5.0.0
     ports:
       - "8000:80"
-      - "433:433"
+      - "443:443"
     restart: always
     environment:
       revive_DB_HOST: db:3306

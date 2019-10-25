@@ -32,18 +32,23 @@ RUN apk --update add \
         php7-openssl \
         php7-zlib \
         php7-zip \
+        php7-memcached \
     && rm -rf /var/cache/apk/*
 
+RUN addgroup -S  www &&  adduser -D -h /data/www -S www -G www
+
 RUN wget -qO- https://download.revive-adserver.com/revive-adserver-5.0.0.tar.gz | tar xz --strip 1 \
-    && chown -R nobody:nobody . \
+    && chown -R www:www . \
+    && chmod -R a+w /data/www/var \
+    && chmod -R a+w /data/www/plugins \
+    && chmod -R a+w /data/www/www/admin/plugins \
+    && chmod -R a+w /data/www/www/images \
     && rm -rf /var/cache/apk/*
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-RUN addgroup -S  www &&  adduser -D -h /data/www -S www -G www
-
 RUN mkdir -p /run/nginx
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD php-fpm7 && nginx -g 'daemon off;'

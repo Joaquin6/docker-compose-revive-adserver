@@ -28,3 +28,8 @@
 - **hostname:** (填写Mysql容器的IP)  
 
 **7:** 开始使用revive-adserver
+
+## memcached缓存
+1. 首先需要查清楚memcached容器的IP地址，然后去Plugins选项下设置Banner Delivery Cache Store Plugin的memcached Host，例如172.18.0.4:11211
+2. 再去Configuration选项下的Banner Delivery Setting设置	Banner Delivery Cache Store Type为memcached即可
+
