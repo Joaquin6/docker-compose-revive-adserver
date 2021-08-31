@@ -1,7 +1,8 @@
 FROM nginx:alpine
-MAINTAINER bitterg <bitterg@163.com>
 
 WORKDIR /data/www/
+
+ENV REVIVE_VERSION=5.3.0-rc1
 
 RUN apk --update upgrade && apk update && apk add curl ca-certificates && update-ca-certificates --fresh && apk add openssl
 
@@ -37,7 +38,7 @@ RUN apk --update add \
 
 RUN addgroup -S  www &&  adduser -D -h /data/www -S www -G www
 
-RUN wget -qO- https://download.revive-adserver.com/revive-adserver-5.0.0.tar.gz | tar xz --strip 1 \
+RUN wget -qO- https://download.revive-adserver.com/revive-adserver-$REVIVE_VERSION.tar.gz | tar xz --strip 1 \
     && chown -R www:www . \
     && chmod -R a+w /data/www/var \
     && chmod -R a+w /data/www/plugins \

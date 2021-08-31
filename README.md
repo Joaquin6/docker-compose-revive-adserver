@@ -1,35 +1,56 @@
 # Docker-Revive-Adserver
-## 介绍
-这个小项目的用途就是通过docker容器快速部署revive-adserver-5.0.0
+
+## Introduction
+
+The purpose of this small project is to quickly deploy revive-adserver-5.0.0 through docker containers
 
 ## Requirements
-- **docker** (https://docs.docker.com/engine/installation/linux/debian/)  
-- **docker-compose** (https://docs.docker.com/compose/install/)  
 
-## 如何使用
-**1:** Clone该项目，并且进入目录
-`git clone https://github.com/JimmyBryant/docker-revive-adserver.git`  
-`cd docker-revive-adserver` 	
+- **docker** (https://docs.docker.com/engine/installation/linux/debian/)
+- **docker-compose** (https://docs.docker.com/compose/install/)
 
-**2:** 执行下面命令以启动nginx和mysql容器
-`docker-compose up -d`
+## how to use
 
-**3:** 获取Mysql容器的IP地址
-`docker inspect --format '{{ .NetworkSettings.IPAddress }}' docker-revive-adserver_db_1`
+**1:** Clone the project and enter the directory
 
-**4:** 访问http://IP[:端口]  初始化Revive Adserver，例如我的服务器：http://217.118.67.176:8000
+```sh
+git clone https://github.com/Joaquin6/docker-revive-adserver.git
+```
+
+```sh
+cd docker-revive-adserver
+```
+
+**2:** Execute the following commands to start nginx and mysql containers
+
+```sh
+docker-compose up -d
+```
+
+**3:** Get the IP address of the Mysql container
+
+```sh
+docker inspect --format '{[ NetworkSettings.IPAddress ]}' docker-compose-revive-adserver_db_1
+```
+
+**4:** Visit `http://[:ip][:port]` to initialize Revive Adserver, such as my server: [local-revive-server](http://127.0.0.1:8000/)
+
+[Revice Server Initial Setup](./assets/revive-server-initial-setup.png)
 
 **5:** Accept the terms. Now should display the database connection setup
 
-**6:** Mysql容器默认创建了用户revive，初始密码123456,新建了空的数据库revive5
-- **Database Name:revive5** 
-- **username:** revive  
-- **password:** 123456  
-- **hostname:** (填写Mysql容器的IP)  
+**6:** Mysql container creates the user revive by default, the initial password is `password`, and an empty database revive5 is created.
 
-**7:** 开始使用revive-adserver
+- **DB Name:** revive5
+- **username:** revive
+- **password:** password
+- **hostname:** (Fill in the IP of the Mysql container) - `172.18.0.2`
 
-## memcached缓存
-1. 首先需要查清楚memcached容器的IP地址，然后去Plugins选项下设置Banner Delivery Cache Store Plugin的memcached Host，例如172.18.0.4:11211
-2. 再去Configuration选项下的Banner Delivery Setting设置	Banner Delivery Cache Store Type为memcached即可
+[Setup Complete](./assets/revive-server-initial-setup-complete.png)
 
+**7:** Click `Continue` and Start using revive-adserver
+
+## memcached cache
+
+1. First, you need to find out the IP address of the memcached container, and then go to the Plugins option to set the memcached Host of the Banner Delivery Cache Store Plugin, for example, 172.18.0.4:11211
+2. Go to Banner Delivery Setting under Configuration option and set Banner Delivery Cache Store Type to memcached
