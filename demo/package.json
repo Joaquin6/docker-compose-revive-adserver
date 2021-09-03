@@ -1,0 +1,24 @@
+{
+  "name": "revive-adserver-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack ./entry.js --output=./public/bundle.js --mode=development",
+    "video-demo": "node app.js &",
+    "postvideo-demo": "open http://localhost:3000/video-ads.html",
+    "prestart": "npm run build",
+    "start": "node app.js &",
+    "poststart": "open http://localhost:3000",
+    "stop": "killall node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "video.js": "^7.14.3",
+    "videojs-contrib-ads": "^6.9.0"
+  }
+}

@@ -1,41 +1,42 @@
-version: "2.1"
+version: "3.3"
+
 services:
   db:
-    image: mysql:5.6
-    ports:
-      - "3306:3306"
-    command:
-      - --default_authentication_plugin=mysql_native_password
-      - --character-set-server=utf8
-      - --collation-server=utf8_unicode_ci
-    volumes:
-      - db_data:/var/lib/mysql
+    image: mysql:8.0.26
+    command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
+    # constainer_name: revive-adserver-db
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: revive5
-      MYSQL_USER: revive
+      MYSQL_DATABASE: revive_adserver_530
+      MYSQL_USER: admin
       MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
 
   memcached:
-    image: memcached:1.5-alpine
+    image: memcached:alpine3.14
+    # constainer_name: revive-adserver-memcached
     ports:
-      - "11211:11211"
+      - 11211:11211
     restart: always
 
-  revive:
+  adserver:
     depends_on:
       - db
-    build: ./docker
+    build: ./adserver
     container_name: revive-adserver-5.3.0
     ports:
-      - "8000:80"
-      - "443:443"
+      - 8000:80
+      - 443:443
     restart: always
     environment:
       REVIVE_VERSION: 5.3.0-rc1
-      revive_DB_HOST: db:3306
-      revive_DB_USER: revive
-      revive_DB_PASSWORD: password
+      REVIVE_DB_HOST: db:3306
+      REVIVE_DB_USER: admin
+      REVIVE_DB_PASSWORD: password
+
 volumes:
-  db_data:
+  db-data:

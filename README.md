@@ -39,12 +39,12 @@ docker inspect --format '{[ NetworkSettings.IPAddress ]}' docker-compose-revive-
 
 **5:** Accept the terms. Now should display the database connection setup
 
-**6:** Mysql container creates the user revive by default, the initial password is `password`, and an empty database revive5 is created.
+**6:** Mysql container creates the user revive by default, the initial password is `password`, and an empty database revive_adserver_530 is created.
 
-- **DB Name:** revive5
-- **username:** revive
+- **DB Name:** revive_adserver_530
+- **username:** admin
 - **password:** password
-- **hostname:** (Fill in the IP of the Mysql container) - `172.18.0.2`
+- **hostname:** (Fill in the IP of the Mysql container) - `172.21.0.2`
 
 [Setup Complete](./assets/revive-server-initial-setup-complete.png)
 

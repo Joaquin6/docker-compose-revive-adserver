@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [{
+        "mysqlOptions": {
+            "authProtocol": "default"
+        },
+        "server": "127.0.0.1",
+        "port": 3306,
+        "driver": "MySQL",
+        "name": "AdServer",
+        "database": "revive5",
+        "username": "revive",
+        "password": "password"
+    }]
+}
