@@ -1,0 +1,43 @@
+<VAST version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Ad id="20001">
+    <InLine>
+      <AdSystem version="4.0">Vibrant Media</AdSystem>
+      <AdTitle>Vibrant Media Test VAST</AdTitle>
+      <Pricing model="cpm" currency="USD">
+        <![CDATA[ 25.00 ]]>
+      </Pricing>
+      <Error>/error</Error>
+      <Impression id="Impression-ID">/tracking/impression</Impression>
+      <Creatives>
+        <Creative id="5480" sequence="1">
+          <Linear>
+            <Duration>00:00:05</Duration>
+            <TrackingEvents>
+              <Tracking event="start">https://rodrigoehlersehlerseehlrs.de/tracking/start</Tracking>
+              <Tracking event="firstQuartile">/tracking/firstQuartile</Tracking>
+              <Tracking event="midpoint">/tracking/midpoint</Tracking>
+              <Tracking event="thirdQuartile">/tracking/thirdQuartile</Tracking>
+              <Tracking event="complete">/tracking/complete</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickTracking id="blog">
+                <![CDATA[https://www.vibrantmedia.com]]>
+              </ClickTracking>
+              <CustomClick>https://www.vibrantmedia.com</CustomClick>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile id="5241" delivery="progressive" type="video/mp4"><![CDATA[/vasts/ad.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+      <Extensions>
+        <Extension type="iab-Count">
+          <total_available>
+            <![CDATA[ 2 ]]>
+          </total_available>
+        </Extension>
+      </Extensions>
+    </InLine>
+  </Ad>
+</VAST>

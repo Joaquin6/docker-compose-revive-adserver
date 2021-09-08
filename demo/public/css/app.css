@@ -1,0 +1,48 @@
+@media only screen and (max-width: 600px) {
+  .two {
+    grid-template-columns: none !important;
+  }
+
+  .grid {
+    grid-gap: 0em !important;
+  }
+
+  #cvast {
+    display: none;
+  }
+}
+
+.container {
+  margin-top: 1em;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 2em;
+}
+
+.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Text */
+
+.time {
+  color: grey;
+}
+
+.player-log {
+  color: cornflowerblue ;
+}
+
+.plugin-log {
+  color: red ;
+}
+
+/* Other */
+
+.divider {
+  width: 100%;
+  margin: 1em 0em 1em 0em;
+  border-top: 1px solid #eee;
+}

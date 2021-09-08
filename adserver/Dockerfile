@@ -2,7 +2,7 @@ FROM nginx:alpine
 
 WORKDIR /data/www/
 
-ENV REVIVE_VERSION=5.3.0-rc1
+ENV REVIVE_VERSION=4.2.1
 
 RUN apk --update upgrade && apk update && apk add curl ca-certificates && update-ca-certificates --fresh && apk add openssl
 
@@ -45,6 +45,8 @@ RUN wget -qO- https://download.revive-adserver.com/revive-adserver-$REVIVE_VERSI
     && chmod -R a+w /data/www/www/admin/plugins \
     && chmod -R a+w /data/www/www/images \
     && rm -rf /var/cache/apk/*
+
+COPY plugins/vast-converter /data/www/plugins/vast-converter
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 

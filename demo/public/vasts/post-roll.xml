@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VideoAdServingTemplate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+    <Ad id="post-roll">
+        <InLine>
+            <AdSystem>
+                <![CDATA[Revive Adserver]]>
+            </AdSystem>
+            <AdTitle>
+                <![CDATA[Ad Video Test Banner 2]]>
+            </AdTitle>
+            <Description>
+                <![CDATA[Inline Video Ad]]>
+            </Description>
+            <Impression>
+                <URL id="primaryAdServer">
+                    <![CDATA[http://127.0.0.1:8000/www/delivery/lg.php?bannerid=2&campaignid=1&zoneid=1&loc=http%3A%2F%2F127.0.0.1%3A4040%2F&cb=1fec818232]]>
+                </URL>
+            </Impression>
+            <Video>
+                <Duration>00:02:28</Duration>
+                <AdID>
+                    <![CDATA[2]]>
+                </AdID>
+                <VideoClicks>
+                    <ClickThrough>
+                        <URL id="destination">
+                            <![CDATA[http://127.0.0.1:8000/www/delivery/cl.php?bannerid=2&zoneid=1&sig=ad0760bb348941f0ee4ca37bc5924db90d2f5bcd0800b6bd8c5b3d84855293f6&dest=https%3A%2F%2Fwww.nomad-cms.com%2F]]>
+                        </URL>
+                    </ClickThrough>
+                </VideoClicks>
+                <MediaFiles>
+                    <MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/mp4">
+                        <URL>
+                            <![CDATA[https://content.demo1.nomad-cms.com/content/joaquin/avengers/avengers-aus-7c7b7a-tlr2-h720p-.mp4?Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY29udGVudC5kZW1vMS5ub21hZC1jbXMuY29tL2NvbnRlbnQvam9hcXVpbi9hdmVuZ2Vycy9hdmVuZ2Vycy1hdXMtN2M3YjdhLXRscjItaDcyMHAtLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTYzMTEyNzU1Nn0sIklwQWRkcmVzcyI6eyJBV1M6U291cmNlSXAiOiI3NS44Ny4xODguNDcvMzIifX19XX0_&Signature=EUgyI6JG5L~TZbvnCt7OL6UsGhD-8MUrFwRuXTd-ZyXhbWSSKw~HlgOp98itWIxan2qdVjjTJvg4YgxFuHzOlLA0cupdk0XfNGb~Zq9n~EW2ZhCxTHs~bJ7Xx2-X-R8aoNUdGf9eP9WlYzndfoK55kEKm3CVv59WDksEV0IrYlB-ZTgVkQcVaOIpxOA3EIT80aQwYShVKK8wl9droPortPJfwmt1XZplgrBnPMMtQ47k55i3QUUBCvYbv8NwI~S-JnBAJGHKL3gJvKi4ECANyIncczndew5QNHX124CAK1LJjXc8D-lKzcWIGJzb3J5JVRxDE47VJRUqNAW~Gdb6Zw__&Key-Pair-Id=K38LURFVMALT11]]>
+                        </URL>
+                    </MediaFile>
+                </MediaFiles>
+            </Video>
+
+            <TrackingEvents>
+                <Tracking event="start">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=start]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="midpoint">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=midpoint]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="firstQuartile">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=firstquartile]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="thirdQuartile">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=thirdquartile]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="complete">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=complete]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="mute">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=mute]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="pause">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=pause]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="replay">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=replay]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="fullscreen">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=fullscreen]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="stop">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=stop]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="unmute">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=unmute]]>
+                    </URL>
+                </Tracking>
+                <Tracking event="resume">
+                    <URL id="primaryAdServer">
+                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=resume]]>
+                    </URL>
+                </Tracking>
+            </TrackingEvents>
+        </InLine>
+    </Ad>
+
+</VideoAdServingTemplate>
