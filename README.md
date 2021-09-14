@@ -33,7 +33,7 @@ docker-compose up -d
 docker inspect --format '{[ NetworkSettings.IPAddress ]}' docker-compose-revive-adserver_db_1
 ```
 
-**4:** Visit `http://[:ip][:port]` to initialize Revive Adserver, such as my server: [local-revive-server](http://127.0.0.1:8000/)
+**4:** Visit `http://[:ip][:port]` to initialize Revive Adserver, such as my server: [local-revive-server](http://adserver.revive.io:8000/)
 
 [Revice Server Initial Setup](./assets/revive-server-initial-setup.png)
 

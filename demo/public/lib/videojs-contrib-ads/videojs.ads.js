@@ -258,11 +258,11 @@
       originalEvent: event
     });
   }; // Playing event
+
   // Requirements:
   // * Normal playing event when there is no preroll
   // * No playing event before preroll
   // * At least one playing event after preroll
-
   var handlePlaying = function handlePlaying(player, event) {
     if (player.ads.isInAdMode()) {
       if (player.ads.isContentResuming()) {
@@ -276,11 +276,11 @@
       }
     }
   }; // Ended event
+
   // Requirements:
   // * A single ended event when there is no postroll
   // * No ended event before postroll
   // * A single ended event after postroll
-
   var handleEnded = function handleEnded(player, event) {
     if (player.ads.isInAdMode()) {
       // Cancel ended events during content resuming. Normally we would
@@ -308,12 +308,12 @@
       player.trigger('readyforpostroll');
     }
   }; // handleLoadEvent is used for loadstart, loadeddata, and loadedmetadata
+
   // Requirements:
   // * Initial event is not prefixed
   // * Event due to ad loading is prefixed
   // * Event due to content source change is not prefixed
   // * Event due to content resuming is prefixed
-
   var handleLoadEvent = function handleLoadEvent(player, event) {
     // Initial event
     if (event.type === 'loadstart' && !player.ads._hasThereBeenALoadStartDuringPlayerLife || event.type === 'loadeddata' && !player.ads._hasThereBeenALoadedData || event.type === 'loadedmetadata' && !player.ads._hasThereBeenALoadedMetaData) {
@@ -952,9 +952,7 @@
     return States;
   }();
 
-  var State =
-  /*#__PURE__*/
-  function () {
+  var State = /*#__PURE__*/function () {
     State._getName = function _getName() {
       return 'Anonymous State';
     };
@@ -962,12 +960,12 @@
     function State(player) {
       this.player = player;
     }
+
     /*
      * This is the only allowed way to perform state transitions. State transitions usually
      * happen in player event handlers. They can also happen recursively in `init`. They
      * should _not_ happen in `cleanup`.
      */
-
     var _proto = State.prototype;
 
     _proto.transitionTo = function transitionTo(NewState) {
@@ -984,26 +982,23 @@
       }
 
       newState.init.apply(newState, [player].concat(args));
-    }
+    };
+
     /*
      * Implemented by subclasses to provide initialization logic when transitioning
      * to a new state.
      */
-    ;
+    _proto.init = function init() {};
 
-    _proto.init = function init() {}
     /*
      * Implemented by subclasses to provide cleanup logic when transitioning
      * to a new state.
      */
-    ;
+    _proto.cleanup = function cleanup() {};
 
-    _proto.cleanup = function cleanup() {}
     /*
      * Default event handlers. Different states can override these to provide behaviors.
      */
-    ;
-
     _proto.onPlay = function onPlay() {};
 
     _proto.onPlaying = function onPlaying() {};
@@ -1135,10 +1130,7 @@
    * Primarily, this involves handling startLinearAdMode and endLinearAdMode.
    * It also handles content resuming.
    */
-
-  var AdState =
-  /*#__PURE__*/
-  function (_State) {
+  var AdState = /*#__PURE__*/function (_State) {
     _inheritsLoose(AdState, _State);
 
     function AdState(player) {
@@ -1149,64 +1141,59 @@
       _this.waitingForAdBreak = false;
       return _this;
     }
+
     /*
      * Overrides State.isAdState
      */
-
     var _proto = AdState.prototype;
 
     _proto.isAdState = function isAdState() {
       return true;
-    }
+    };
+
     /*
      * We end the content-resuming process on the playing event because this is the exact
      * moment that content playback is no longer blocked by ads.
      */
-    ;
-
     _proto.onPlaying = function onPlaying() {
       var ContentPlayback = States.getState('ContentPlayback');
 
       if (this.contentResuming) {
         this.transitionTo(ContentPlayback);
       }
-    }
+    };
+
     /*
      * If the ad plugin does not result in a playing event when resuming content after an
      * ad, they should instead trigger a contentresumed event to signal that content should
      * resume. The main use case for this is when ads are stitched into the content video.
      */
-    ;
-
     _proto.onContentResumed = function onContentResumed() {
       var ContentPlayback = States.getState('ContentPlayback');
 
       if (this.contentResuming) {
         this.transitionTo(ContentPlayback);
       }
-    }
+    };
+
     /*
      * Check if we are in an ad state waiting for the ad plugin to start
      * an ad break.
      */
-    ;
-
     _proto.isWaitingForAdBreak = function isWaitingForAdBreak() {
       return this.waitingForAdBreak;
-    }
+    };
+
     /*
      * Allows you to check if content is currently resuming after an ad break.
      */
-    ;
-
     _proto.isContentResuming = function isContentResuming() {
       return this.contentResuming;
-    }
+    };
+
     /*
      * Allows you to check if an ad break is in progress.
      */
-    ;
-
     _proto.inAdBreak = function inAdBreak() {
       return this.player.ads._inLinearAdMode === true;
     };
@@ -1216,9 +1203,7 @@
 
   States.registerState('AdState', AdState);
 
-  var ContentState =
-  /*#__PURE__*/
-  function (_State) {
+  var ContentState = /*#__PURE__*/function (_State) {
     _inheritsLoose(ContentState, _State);
 
     function ContentState() {
@@ -1260,9 +1245,7 @@
 
   var ContentState$1 = States.getState('ContentState');
 
-  var AdsDone =
-  /*#__PURE__*/
-  function (_ContentState) {
+  var AdsDone = /*#__PURE__*/function (_ContentState) {
     _inheritsLoose(AdsDone, _ContentState);
 
     function AdsDone() {
@@ -1307,6 +1290,7 @@
   restoring the player state after an ad.
   */
   var tryToResumeTimeout_;
+
   /*
    * Returns an object that captures the portions of player state relevant to
    * video playback. The result of this function can be passed to
@@ -1314,7 +1298,6 @@
    * was in when this function was invoked.
    * @param {Object} player The videojs player object
    */
-
   function getPlayerSnapshot(player) {
     var currentTime;
 
@@ -1357,13 +1340,13 @@
     snapshotObject.suppressedTracks = suppressedTracks;
     return snapshotObject;
   }
+
   /*
    * Attempts to modify the specified player so that its state is equivalent to
    * the state of the snapshot.
    * @param {Object} player - the videojs player object
    * @param {Object} snapshotObject - the player state to apply
    */
-
   function restorePlayerSnapshot(player, callback) {
     var snapshotObject = player.ads.snapshot;
 
@@ -1549,7 +1532,6 @@
    * is the time between startLinearAdMode and endLinearAdMode. The ad
    * plugin may play 0 or more ads during this time.
    */
-
   function start(player) {
     player.ads.debug('Starting ad break');
     player.ads._inLinearAdMode = true; // No longer does anything, used to move us to ad-playback
@@ -1610,14 +1592,12 @@
   };
 
   var AdState$1 = States.getState('AdState');
+
   /*
    * This state encapsulates waiting for prerolls, preroll playback, and
    * content restoration after a preroll.
    */
-
-  var Preroll =
-  /*#__PURE__*/
-  function (_AdState) {
+  var Preroll = /*#__PURE__*/function (_AdState) {
     _inheritsLoose(Preroll, _AdState);
 
     function Preroll() {

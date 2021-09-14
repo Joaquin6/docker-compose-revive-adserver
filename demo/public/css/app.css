@@ -32,11 +32,11 @@
 }
 
 .player-log {
-  color: cornflowerblue ;
+  color: cornflowerblue;
 }
 
 .plugin-log {
-  color: red ;
+  color: red;
 }
 
 /* Other */
@@ -45,4 +45,16 @@
   width: 100%;
   margin: 1em 0em 1em 0em;
   border-top: 1px solid #eee;
+}
+
+.description {
+  background-color: #eee;
+  border: 1px solid #777;
+  padding: 10px;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  font-family: Verdana, sans-serif;
+}
+.example-video-container {
+  display: inline-block;
 }

@@ -41,8 +41,10 @@ function getCurrentTimeSring() {
 const DEFAULT_VIDEOJS = {
   controls: true,
   muted: true,
+  debug: true,
   sources: [{
-    src: 'https://content.demo1.nomad-cms.com/content/public/acera-one-direction-tea-travel-mug.mp4',
+    // src: 'https://content.demo1.nomad-cms.com/content/public/acera-one-direction-tea-travel-mug.mp4',
+    src: '/videos/bbb_trailer.mp4',
     type: 'video/mp4'
   }],
   responsive: true,
@@ -52,11 +54,13 @@ const DEFAULT_VIDEOJS = {
 
 function onPlayerReady() {
   // TODO: Again because initialization options don't seem to work..
-  this.muted(true);
-  this.ads({ debug: true, postrollTimeout: 10000 });
+  this.ads({ debug: true, prerollTimeout: 60000, postrollTimeout: 10000 });
 
   // Add VAST plugin to videojs
-  const url = "http://127.0.0.1:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&format=vast&nz=1&zones=post-roll%3D2"
+  // http://blog.denivip.ru/demos/html5videovastplugin/response.xml?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll-0%3D11%7Cmid-roll-0%3D11%7Cmid-roll-1%3D11%7Cpost-roll-0%3D11&nz=1&format=vast&charset=UTF-8
+  // http://adserver.revive.io:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll-0%3D2%7Cmid-roll-0%3D2%7Cmid-roll-1%3D2%7Cpost-roll-0%3D2&nz=1&format=vast&charset=UTF-8
+  // const url = "http://adserver.revive.io:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&format=vast&nz=1&zones=post-roll%3D2"
+  const url = "http://adserver.revive.io:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&zones=pre-roll-0%3D2%7Cmid-roll-0%3D2%7Cmid-roll-1%3D2%7Cpost-roll-0%3D2&nz=1&format=vast&charset=UTF-8"
   this.vast({
     url,
     // VAST url, use default if not set
@@ -64,7 +68,7 @@ function onPlayerReady() {
     // Always play the AD
     playAdAlways: true,
     // Wait 10 seconds before timing out
-    adCancelTimeout: 10000
+    adCancelTimeout: 60000
   });
 
   // Setup all event logs -> app.utils.js
@@ -351,7 +355,7 @@ function listeners() {
 //   let adReqZone = options && options.adReqZone !== undefined ? options.adReqZone : 'pre-roll';
 //   let adReqFormat = options && options.adReqFormat !== undefined ? options.adReqFormat : 'vast';
 //   let adServerUrl = options && options.adServerUrl !== undefined
-//     ? options.adServerUrl : 'http://127.0.0.1:8000/www/delivery/fc.php';
+//     ? options.adServerUrl : 'http://adserver.revive.io:8000/www/delivery/fc.php';
 //   let adReqScript = options && options.adReqScript !== undefined
 //     ? options.adReqScript : 'bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml';
 //   let playPreroll = options && options.playPreroll !== undefined ? options.playPreroll : true;
@@ -419,7 +423,7 @@ const vid0 = videojs('vid0', DEFAULT_VIDEOJS, onPlayerReady);
 //   // in this example, we use a static mp4
 //   // player.src('http://localhost:4040/rog-zephyrus-duo-15.mp4');
 //   // [YOUR-ADSERVER-DOMAIN-HERE]/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&format=vast&nz=1&zones=pre-roll%3D[YOUR-ZONE-ID-HERE]
-//   player.src('http://127.0.0.1:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&format=vast&nz=1&zones=pre-roll%3D1');
+//   player.src('http://adserver.revive.io:8000/www/delivery/fc.php?script=bannerTypeHtml:vastInlineBannerTypeHtml:vastInlineHtml&format=vast&nz=1&zones=pre-roll%3D1');
 
 //   // send event when ad is playing to remove loading spinner
 //   player.one('adplaying', function() {

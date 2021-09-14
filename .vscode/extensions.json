@@ -3,7 +3,6 @@
         "xyz.plsql-language",
         "adpyke.vscode-sql-formatter",
         "ms-mssql.mssql",
-        "formulahendry.vscode-mysql",
         "cweijan.vscode-mysql-client2",
         "jakebathman.mysql-syntax",
         "william-voyek.vscode-nginx",
@@ -11,6 +10,10 @@
         "ahmadalli.vscode-nginx-conf",
         "teclado.vscode-nginx-format",
         "shanoor.vscode-nginx",
-        "hangxingliu.vscode-nginx-conf-hint"
+        "hangxingliu.vscode-nginx-conf-hint",
+        "leizongmin.node-module-intellisense",
+        "swellaby.node-pack",
+        "tgreen7.vs-code-node-require",
+        "chris-noring.node-snippets"
     ]
 }

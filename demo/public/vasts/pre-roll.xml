@@ -13,7 +13,7 @@
             </Description>
             <Impression>
                 <URL id="primaryAdServer">
-                    <![CDATA[http://127.0.0.1:8000/www/delivery/lg.php?bannerid=2&campaignid=1&zoneid=1&loc=http%3A%2F%2F127.0.0.1%3A4040%2F&cb=0ea8758426]]>
+                    <![CDATA[http://adserver.revive.io:8000/www/delivery/lg.php?bannerid=2&campaignid=1&zoneid=1&loc=http%3A%2F%2F127.0.0.1%3A4040%2F&cb=0ea8758426]]>
                 </URL>
             </Impression>
             <Video>
@@ -24,7 +24,7 @@
                 <VideoClicks>
                     <ClickThrough>
                         <URL id="destination">
-                            <![CDATA[http://127.0.0.1:8000/www/delivery/cl.php?bannerid=2&zoneid=1&sig=ad0760bb348941f0ee4ca37bc5924db90d2f5bcd0800b6bd8c5b3d84855293f6&dest=https%3A%2F%2Fwww.nomad-cms.com%2F]]>
+                            <![CDATA[http://adserver.revive.io:8000/www/delivery/cl.php?bannerid=2&zoneid=1&sig=ad0760bb348941f0ee4ca37bc5924db90d2f5bcd0800b6bd8c5b3d84855293f6&dest=https%3A%2F%2Fwww.nomad-cms.com%2F]]>
                         </URL>
                     </ClickThrough>
                 </VideoClicks>
@@ -40,62 +40,62 @@
             <TrackingEvents>
                 <Tracking event="start">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=start]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=start]]>
                     </URL>
                 </Tracking>
                 <Tracking event="midpoint">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=midpoint]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=midpoint]]>
                     </URL>
                 </Tracking>
                 <Tracking event="firstQuartile">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=firstquartile]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=firstquartile]]>
                     </URL>
                 </Tracking>
                 <Tracking event="thirdQuartile">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=thirdquartile]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=thirdquartile]]>
                     </URL>
                 </Tracking>
                 <Tracking event="complete">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=complete]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=complete]]>
                     </URL>
                 </Tracking>
                 <Tracking event="mute">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=mute]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=mute]]>
                     </URL>
                 </Tracking>
                 <Tracking event="pause">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=pause]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=pause]]>
                     </URL>
                 </Tracking>
                 <Tracking event="replay">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=replay]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=replay]]>
                     </URL>
                 </Tracking>
                 <Tracking event="fullscreen">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=fullscreen]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=fullscreen]]>
                     </URL>
                 </Tracking>
                 <Tracking event="stop">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=stop]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=stop]]>
                     </URL>
                 </Tracking>
                 <Tracking event="unmute">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=unmute]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=unmute]]>
                     </URL>
                 </Tracking>
                 <Tracking event="resume">
                     <URL id="primaryAdServer">
-                        <![CDATA[http://127.0.0.1:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=resume]]>
+                        <![CDATA[http://adserver.revive.io:8000/www/delivery/fc.php?script=videoAds:vastEvent&bannerid=2&zoneid=1&event=resume]]>
                     </URL>
                 </Tracking>
             </TrackingEvents>

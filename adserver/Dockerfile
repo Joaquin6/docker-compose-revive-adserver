@@ -46,7 +46,7 @@ RUN wget -qO- https://download.revive-adserver.com/revive-adserver-$REVIVE_VERSI
     && chmod -R a+w /data/www/www/images \
     && rm -rf /var/cache/apk/*
 
-COPY plugins/vast-converter /data/www/plugins/vast-converter
+# COPY plugins/vast-converter /data/www/plugins/vast-converter
 
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 

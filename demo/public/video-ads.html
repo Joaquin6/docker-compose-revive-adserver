@@ -4,39 +4,24 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
         <title>Video Ads Local Demo</title>
 
-        <link rel="icon" href="./images/favicon.png">
+        <link rel="icon" href="/images/favicon.png">
         <link href="https://vjs.zencdn.net/7.14.3/video-js.css" rel="stylesheet">
         <link href="/lib/videojs-contrib-ads/videojs.ads.css" rel="stylesheet" type="text/css">
-        <link href="/videojs.vast.css" rel="stylesheet" type="text/css">
+        <link href="/lib/videojs-contrib-vast/videojs.vast.css" rel="stylesheet" type="text/css">
         <link href="/css/app.css" rel="stylesheet" type="text/css"></link>
-
-        <style type="text/css">
-            .description {
-                background-color:#eee;
-                border: 1px solid #777;
-                padding: 10px;
-                font-size: .8em;
-                line-height: 1.5em;
-                font-family: Verdana, sans-serif;
-            }
-            .example-video-container {
-                display: inline-block;
-            }
-        </style>
 
         <!--[if lt IE 9]><script src="lib/es5.js"></script><![endif]-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
 
-        <script src="/lib/videojs-contrib-ads/videojs.ads.js"></script>
         <!-- <script src="/lib/vast-client-browser.min.js"></script> -->
+        <script src="/lib/videojs-contrib-ads/videojs.ads.js"></script>
         <script src="/lib/vast-client.js"></script>
-        <script src="/videojs.vast.js"></script>
-        <script type="text/javascript">
-            window.HELP_IMPROVE_VIDEOJS = false;
-        </script>
+        <script src="/lib/videojs-contrib-vast/videojs.vast.js"></script>
+        <script src="/lib/html5videovastplugin.js"></script>
     </head>
     <body>
         <div class="container">
@@ -49,11 +34,35 @@
                     <div><textarea disabled class="u-full-width" id="cvast" placeholder="CUSTOM VAST (SOON)"></textarea></div>
                 </div>
                 <div class="example-video-container">
-                    <video id="vid0" class="video-js vjs-default-skin" width='640' height='400' playsinline>
-                        <!-- <source src="http://v.theonion.com/onionmedia/videos/videometa/1521/zen_mp4.mp4" type='video/mp4'> -->
-                        <!-- <source src="http://127.0.0.1:4040/videos/rog-zephyrus-duo-15.mp4" type='video/mp4'> -->
+                    <!-- <video id="vid0" class="video-js vjs-default-skin" width='640' height='400' playsinline>
                         <p>Video Playback Not Supported</p>
-                    </video>
+                    </video> -->
+                    <video id="vid0"
+                        src="https://content.demo1.nomad-cms.com/content/public/finding-joy-season-2-official-trailer-new-by-gabe.mp4"
+                        width = "640"
+                        height="480"
+                        ads='{
+                            "servers": [{"apiAddress": "http://adserver.revive.io:8000/www/delivery/fc.php"}],
+                            "schedule": [
+                                {"zone": "1", "position": "pre-roll"},
+                                {"zone": "2", "position": "mid-roll", "startTime": "00:00:30"},
+                                {"zone": "2", "position": "post-roll"}
+                            ]
+                        }' controls />
+
+                    <!-- <video id="vid0"
+                        src="https://content.demo1.nomad-cms.com/content/public/finding-joy-season-2-official-trailer-new-by-gabe.mp4"
+                        width = "640"
+                        height="480"
+                        ads='{
+                            "servers": [{"apiAddress": "http://adserver.revive.io:8000/www/delivery/fc.php"}],
+                            "schedule": [
+                                {"zone": "1", "position": "pre-roll"},
+                                {"zone": "2", "position": "mid-roll", "startTime": "00:00:30"},
+                                {"zone": "2", "position": "mid-roll", "startTime": "00:01:00"},
+                                {"zone": "2", "position": "post-roll"}
+                            ]
+                        }' controls /> -->
                 </div>
             </div>
 
@@ -113,6 +122,8 @@
             </div> -->
         </div>
 
-        <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
+        <script>initAdsFor("vid0");</script>
+
+        <!-- <script type="text/javascript" src="/bundle.js" charset="utf-8"></script> -->
     </body>
 </html>

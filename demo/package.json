@@ -2,6 +2,8 @@
   "name": "revive-adserver-demo",
   "version": "1.0.0",
   "description": "",
+  "author": "Joaquin Briceno <joaquinbriceno1@gmail.com>",
+  "license": "ISC",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,14 +15,9 @@
     "poststart": "open http://127.0.0.1:4040",
     "stop": "killall node"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "fast-xml-parser": "^3.19.0",
-    "morgan": "^1.10.0",
-    "vast-client": "^3.1.1",
-    "video.js": "^7.14.3",
-    "videojs-contrib-ads": "^6.9.0"
+    "morgan": "^1.10.0"
   }
 }

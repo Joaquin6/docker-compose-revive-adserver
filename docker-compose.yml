@@ -5,7 +5,7 @@ services:
     image: mysql:5.6
     command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     restart: always
-    # constainer_name: revive-adserver-db
+    # constainer_name: adserver.db
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: revive_adserver_421
@@ -18,7 +18,7 @@ services:
 
   memcached:
     image: memcached:alpine3.14
-    # constainer_name: revive-adserver-memcached
+    # constainer_name: memcached.revive.io
     ports:
       - 11211:11211
     restart: always
@@ -27,13 +27,13 @@ services:
     depends_on:
       - db
     build: ./adserver
-    container_name: revive-adserver-4.2.1
+    container_name: adserver.revive.io
     ports:
       - 8000:80
       - 443:443
     restart: always
     environment:
-      REVIVE_VERSION: '4.2.1'
+      REVIVE_VERSION: 4.2.1
       REVIVE_DB_HOST: db:3306
       REVIVE_DB_USER: admin
       REVIVE_DB_PASSWORD: password

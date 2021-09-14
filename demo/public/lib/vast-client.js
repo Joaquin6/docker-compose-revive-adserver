@@ -288,6 +288,7 @@
       }
     });
   }
+
   /**
    * Replace the provided URLTemplates with the given values
    *
@@ -295,7 +296,6 @@
    * @param {Object} [macros={}] - An optional Object of parameters to be used in the tracking calls.
    * @param {Object} [options={}] - An optional Object of options to be used in the tracking calls.
    */
-
   function resolveURLTemplates(URLTemplates) {
     var macros = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -327,6 +327,7 @@
 
     return resolvedURLs;
   }
+
   /**
    * Replace the macros tracking url with their value.
    * If no value is provided for a supported macro and it exists in the url,
@@ -335,7 +336,6 @@
    * @param {String} url - Tracking url.
    * @param {Object} macros - Object of macros to be replaced in the tracking calls
    */
-
   function replaceUrlMacros(url, macros) {
     url = replaceMacrosValues(url, macros); // match any macros from the url that was not replaced
 
@@ -359,13 +359,13 @@
     }, {});
     return replaceMacrosValues(url, supportedRemainingMacros);
   }
+
   /**
    * Replace the macros tracking url with their value.
    *
    * @param {String} url - Tracking url.
    * @param {Object} macros - Object of macros to be replaced in the tracking calls
    */
-
   function replaceMacrosValues(url, macros) {
     var replacedMacrosUrl = url;
 
@@ -377,6 +377,7 @@
 
     return replacedMacrosUrl;
   }
+
   /**
    * Extract the url/s from the URLTemplates.
    *   If the URLTemplates is an array of urls
@@ -385,7 +386,6 @@
    *
    * @param {Array|String} URLTemplates - An array|string of url templates.
    */
-
   function extractURLsFromTemplates(URLTemplates) {
     if (Array.isArray(URLTemplates)) {
       return URLTemplates.map(function (URLTemplate) {
@@ -395,6 +395,7 @@
 
     return URLTemplates;
   }
+
   /**
    * Returns a boolean after checking if the object exists in the array.
    *   true - if the object exists, false otherwise
@@ -402,7 +403,6 @@
    * @param {Object} obj - The object who existence is to be checked.
    * @param {Array} list - List of objects.
    */
-
   function containsTemplateObject(obj, list) {
     for (var i = 0; i < list.length; i++) {
       if (isTemplateObjectEqual(list[i], obj)) {
@@ -412,6 +412,7 @@
 
     return false;
   }
+
   /**
    * Returns a boolean after comparing two Template objects.
    *   true - if the objects are equivalent, false otherwise
@@ -419,7 +420,6 @@
    * @param {Object} obj1
    * @param {Object} obj2
    */
-
   function isTemplateObjectEqual(obj1, obj2) {
     if (obj1 && obj2) {
       var obj1Properties = Object.getOwnPropertyNames(obj1);
@@ -479,6 +479,7 @@
       return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
     }, []);
   }
+
   /**
    * Joins two arrays of objects without duplicates
    *
@@ -487,7 +488,6 @@
    *
    * @return {Array}
    */
-
   function joinArrayOfUniqueTemplateObjs() {
     var arr1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var arr2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -528,7 +528,6 @@
    * @param  {String} name - The name to look for.
    * @return {Object|undefined}
    */
-
   function childByName(node, name) {
     var childNodes = node.childNodes;
 
@@ -540,13 +539,13 @@
       }
     }
   }
+
   /**
    * Returns all the elements of the given node which nodeName match the given name.
    * @param  {Node} node - The node to use to find the matches.
    * @param  {String} name - The name to look for.
    * @return {Array}
    */
-
   function childrenByName(node, name) {
     var children = [];
     var childNodes = node.childNodes;
@@ -561,13 +560,13 @@
 
     return children;
   }
+
   /**
    * Converts relative vastAdTagUri.
    * @param  {String} vastAdTagUrl - The url to resolve.
    * @param  {String} originalUrl - The original url.
    * @return {String}
    */
-
   function resolveVastAdTagURI(vastAdTagUrl, originalUrl) {
     if (!originalUrl) {
       return vastAdTagUrl;
@@ -587,31 +586,31 @@
 
     return vastAdTagUrl;
   }
+
   /**
    * Converts a boolean string into a Boolean.
    * @param  {String} booleanString - The boolean string to convert.
    * @return {Boolean}
    */
-
   function parseBoolean(booleanString) {
     return ['true', 'TRUE', 'True', '1'].indexOf(booleanString) !== -1;
   }
+
   /**
    * Parses a node text (for legacy support).
    * @param  {Object} node - The node to parse the text from.
    * @return {String}
    */
-
   function parseNodeText(node) {
     return node && (node.textContent || node.text || '').trim();
   }
+
   /**
    * Copies an attribute from a node to another.
    * @param  {String} attributeName - The name of the attribute to clone.
    * @param  {Object} nodeSource - The source node to copy the attribute from.
    * @param  {Object} nodeDestination - The destination node to copy the attribute at.
    */
-
   function copyNodeAttribute(attributeName, nodeSource, nodeDestination) {
     var attributeValue = nodeSource.getAttribute(attributeName);
 
@@ -619,13 +618,13 @@
       nodeDestination.setAttribute(attributeName, attributeValue);
     }
   }
+
   /**
    * Converts element attributes into an object, where object key is attribute name
    * and object value is attribute value
    * @param {Element} element
    * @returns {Object}
    */
-
   function parseAttributes(element) {
     var nodeAttributes = element.attributes;
     var attributes = {};
@@ -636,12 +635,12 @@
 
     return attributes;
   }
+
   /**
    * Parses a String duration into a Number.
    * @param  {String} durationString - The dureation represented as a string.
    * @return {Number}
    */
-
   function parseDuration(durationString) {
     if (durationString === null || typeof durationString === 'undefined') {
       return -1;
@@ -673,13 +672,13 @@
 
     return hours + minutes + seconds;
   }
+
   /**
    * Splits an Array of ads into an Array of Arrays of ads.
    * Each subarray contains either one ad or multiple ads (an AdPod)
    * @param  {Array} ads - An Array of ads to split
    * @return {Array}
    */
-
   function splitVAST(ads) {
     var splittedVAST = [];
     var lastAdPod = null;
@@ -705,12 +704,12 @@
     });
     return splittedVAST;
   }
+
   /**
    * Parses the attributes and assign them to object
    * @param  {Object} attributes attribute
    * @param  {Object} verificationObject with properties which can be assigned
    */
-
   function assignAttributes(attributes, verificationObject) {
     if (attributes) {
       for (var attrKey in attributes) {
@@ -728,13 +727,13 @@
       }
     }
   }
+
   /**
    * Merges the data between an unwrapped ad and his wrapper.
    * @param  {Ad} unwrappedAd - The 'unwrapped' Ad.
    * @param  {Ad} wrapper - The wrapper Ad.
    * @return {void}
    */
-
   function mergeWrapperAdData(unwrappedAd, wrapper) {
     unwrappedAd.errorURLTemplates = wrapper.errorURLTemplates.concat(unwrappedAd.errorURLTemplates);
     unwrappedAd.impressionURLTemplates = wrapper.impressionURLTemplates.concat(unwrappedAd.impressionURLTemplates);
@@ -828,7 +827,6 @@
    * @param  {Object} creativeAttributes - The attributes of the CompanionAd (optional).
    * @return {Object} creative - The creative object.
    */
-
   function parseCreativeCompanion(creativeElement, creativeAttributes) {
     var creative = createCreativeCompanion(creativeAttributes);
     creative.required = creativeElement.getAttribute('required') || null;
@@ -1004,7 +1002,6 @@
    * @param  {any} creativeAttributes - The attributes of the Linear (optional).
    * @return {Object} creative - The creativeLinear object.
    */
-
   function parseCreativeLinear(creativeElement, creativeAttributes) {
     var offset;
     var creative = createCreativeLinear(creativeAttributes);
@@ -1129,12 +1126,12 @@
 
     return creative;
   }
+
   /**
    * Parses the MediaFile element from VAST.
    * @param  {Object} mediaFileElement - The VAST MediaFile element.
    * @return {Object} - Parsed mediaFile object.
    */
-
   function parseMediaFile(mediaFileElement) {
     var mediaFile = createMediaFile();
     mediaFile.id = mediaFileElement.getAttribute('id');
@@ -1164,23 +1161,23 @@
 
     return mediaFile;
   }
+
   /**
    * Parses the InteractiveCreativeFile element from VAST MediaFiles node.
    * @param  {Object} interactiveCreativeElement - The VAST InteractiveCreativeFile element.
    * @return {Object} - Parsed interactiveCreativeFile object.
    */
-
   function parseInteractiveCreativeFile(interactiveCreativeElement) {
     var interactiveCreativeFile = createInteractiveCreativeFile(parserUtils.parseAttributes(interactiveCreativeElement));
     interactiveCreativeFile.fileURL = parserUtils.parseNodeText(interactiveCreativeElement);
     return interactiveCreativeFile;
   }
+
   /**
    * Parses the Icon element from VAST.
    * @param  {Object} iconElement - The VAST Icon element.
    * @return {Object} - Parsed icon object.
    */
-
   function parseIcon(iconElement) {
     var icon = createIcon();
     icon.program = iconElement.getAttribute('program');
@@ -1219,12 +1216,12 @@
     icon.iconViewTrackingURLTemplate = parserUtils.parseNodeText(parserUtils.childByName(iconElement, 'IconViewTracking'));
     return icon;
   }
+
   /**
    * Parses an horizontal position into a String ('left' or 'right') or into a Number.
    * @param  {String} xPosition - The x position to parse.
    * @return {String|Number}
    */
-
   function parseXPosition(xPosition) {
     if (['left', 'right'].indexOf(xPosition) !== -1) {
       return xPosition;
@@ -1232,12 +1229,12 @@
 
     return parseInt(xPosition || 0);
   }
+
   /**
    * Parses an vertical position into a String ('top' or 'bottom') or into a Number.
    * @param  {String} yPosition - The x position to parse.
    * @return {String|Number}
    */
-
   function parseYPosition(yPosition) {
     if (['top', 'bottom'].indexOf(yPosition) !== -1) {
       return yPosition;
@@ -1245,13 +1242,13 @@
 
     return parseInt(yPosition || 0);
   }
+
   /**
    * Getting required attributes from element
    * @param  {Object} element - DOM element
    * @param  {Array} attributes - list of attributes
    * @return {Object|null} null if a least one element not present
    */
-
   function getRequiredAttributes(element, attributes) {
     var values = {};
     var error = false;
@@ -1320,7 +1317,6 @@
    * @param  {any} creativeAttributes - The attributes of the NonLinear (optional).
    * @return {Object} creative - The CreativeNonLinear object.
    */
-
   function parseCreativeNonLinear(creativeElement, creativeAttributes) {
     var creative = createCreativeNonLinear(creativeAttributes);
     parserUtils.childrenByName(creativeElement, 'TrackingEvents').forEach(function (trackingEventsElement) {
@@ -1397,7 +1393,6 @@
    * @param  {String} type - The type of extensions to parse.(Ad|Creative)
    * @return {AdExtension[]|CreativeExtension[]} - The nodes parsed to extensions
    */
-
   function parseExtensions(extensions) {
     var exts = [];
     extensions.forEach(function (extNode) {
@@ -1409,12 +1404,12 @@
     });
     return exts;
   }
+
   /**
    * Parses an extension child node
    * @param {Node} extNode - The extension node to parse
    * @return {AdExtension|CreativeExtension|null} - The node parsed to extension
    */
-
   function _parseExtension(extNode) {
     // Ignore comments
     if (extNode.nodeName === '#comment') return null;
@@ -1467,7 +1462,6 @@
    * @param  {any} creativeNodes - The creative nodes to parse.
    * @return {Array<Creative>} - An array of Creative objects.
    */
-
   function parseCreatives(creativeNodes) {
     var creatives = [];
     creativeNodes.forEach(function (creativeElement) {
@@ -1527,12 +1521,12 @@
     });
     return creatives;
   }
+
   /**
    * Parses the creative adId Attribute.
    * @param  {any} creativeElement - The creative element to retrieve the adId from.
    * @return {String|null}
    */
-
   function parseCreativeAdIdAttribute(creativeElement) {
     return creativeElement.getAttribute('AdID') || // VAST 2 spec
     creativeElement.getAttribute('adID') || // VAST 3 spec
@@ -1617,7 +1611,6 @@
    * @emits  VASTParser#VAST-warning
    * @param  {undefined|Boolean} [isAdInline] - Passed recursively to itself. True if the node is contained inside a inLine tag.
    */
-
   function verifyRequiredValues(node, emit, isAdInline) {
     if (!node || !node.nodeName) {
       return;
@@ -1642,13 +1635,13 @@
       }, emit);
     }
   }
+
   /**
    * Verify and trigger warnings if node required attributes are not set.
    * @param  {Node} node - The node element.
    * @param  {Function} emit - Emit function used to trigger Warning event.
    * @emits  VASTParser#VAST-warning
    */
-
   function verifyRequiredAttributes(node, emit) {
     if (!requiredValues[node.nodeName] || !requiredValues[node.nodeName].attributes) {
       return;
@@ -1667,6 +1660,7 @@
       }, emit);
     }
   }
+
   /**
    * Verify and trigger warnings if node required sub element are not set.
    * @param  {Node} node - The node element
@@ -1674,7 +1668,6 @@
    * @param  {Function} emit - Emit function used to trigger Warning event.
    * @emits  VASTParser#VAST-warning
    */
-
   function verifyRequiredSubElements(node, emit, isAdInline) {
     var required = requiredValues[node.nodeName]; // Do not verify subelement if node is a child of wrapper, but verify it if node is the Wrapper itself
     // Wrapper child have no required subElement. (Only InLine does)
@@ -1717,15 +1710,16 @@
       }, emit);
     }
   }
+
   /**
    * Check if a node has sub elements.
    * @param  {Node} node - The node element.
    * @returns {Boolean}
    */
-
   function hasSubElements(node) {
     return node.children && node.children.length !== 0;
   }
+
   /**
    * Trigger Warning if a element is empty or has missing attributes/subelements/resources
    * @param  {Object} missingElement - Object containing missing elements and values
@@ -1737,7 +1731,6 @@
    * @param  {Function} emit - Emit function used to trigger Warning event.
    * @emits  VastParser#VAST-warning
    */
-
   function emitMissingValueWarning(_ref, emit) {
     var name = _ref.name,
         parentName = _ref.parentName,
@@ -1783,7 +1776,6 @@
    * @emits  VASTParser#VAST-warning
    * @return {Object|undefined} - Object containing the ad and if it is wrapper/inline
    */
-
   function parseAd(adElement, emit) {
     var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
         allowMultipleAds = _ref.allowMultipleAds,
@@ -1821,6 +1813,7 @@
       }
     }
   }
+
   /**
    * Parses an Inline
    * @param  {Object} adElement Element - The VAST Inline element to parse.
@@ -1829,7 +1822,6 @@
    * @emits  VASTParser#VAST-warning
    * @return {Object} ad - The ad object.
    */
-
   function parseInLine(adElement, emit) {
     var _ref2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
         allowMultipleAds = _ref2.allowMultipleAds;
@@ -1843,6 +1835,7 @@
 
     return parseAdElement(adElement, emit);
   }
+
   /**
    * Parses an ad type (Inline or Wrapper)
    * @param  {Object} adTypeElement - The VAST Inline or Wrapper element to parse.
@@ -1850,7 +1843,6 @@
    * @emits  VASTParser#VAST-warning
    * @return {Object} ad - The ad object.
    */
-
   function parseAdElement(adTypeElement, emit) {
     if (emit) {
       parserVerification.verifyRequiredValues(adTypeElement, emit);
@@ -1963,6 +1955,7 @@
 
     return ad;
   }
+
   /**
    * Parses a Wrapper element without resolving the wrapped urls.
    * @param  {Object} wrapperElement - The VAST Wrapper element to be parsed.
@@ -1970,7 +1963,6 @@
    * @emits  VASTParser#VAST-warning
    * @return {Ad}
    */
-
   function parseWrapper(wrapperElement, emit) {
     var ad = parseAdElement(wrapperElement, emit);
     var followAdditionalWrappersValue = wrapperElement.getAttribute('followAdditionalWrappers');
@@ -2050,12 +2042,12 @@
       return ad;
     }
   }
+
   /**
    * Parses the AdVerifications Element.
    * @param  {Array} verifications - The array of verifications to parse.
    * @return {Array<Object>}
    */
-
   function _parseAdVerifications(verifications) {
     var ver = [];
     verifications.forEach(function (verificationNode) {
@@ -2100,12 +2092,12 @@
     });
     return ver;
   }
+
   /**
    * Parses the AdVerifications Element from extension for versions < 4.0
    * @param  {Array<Node>} extensions - The array of extensions to parse.
    * @return {Array<Object>}
    */
-
   function _parseAdVerificationsFromExensions(extensions) {
     var adVerificationsNode = null,
         adVerifications = []; // Find the first (and only) AdVerifications node from extensions
@@ -2120,12 +2112,12 @@
 
     return adVerifications;
   }
+
   /**
    * Parses the ViewableImpression Element.
    * @param  {Object} viewableImpressionNode - The ViewableImpression node element.
    * @return {Object} viewableImpression - The viewableImpression object
    */
-
   function _parseViewableImpression(viewableImpressionNode) {
     var viewableImpression = {};
     viewableImpression.id = viewableImpressionNode.getAttribute('id') || null;
@@ -2459,13 +2451,13 @@
     ERRORCODE: 900,
     extensions: []
   };
+
   /**
    * This class provides methods to fetch and parse a VAST document.
    * @export
    * @class VASTParser
    * @extends EventEmitter
    */
-
   var VASTParser = /*#__PURE__*/function (_EventEmitter) {
     _inherits(VASTParser, _EventEmitter);
 
@@ -2491,12 +2483,12 @@
       _this.parsingOptions = {};
       return _this;
     }
+
     /**
      * Adds a filter function to the array of filters which are called before fetching a VAST document.
      * @param  {function} filter - The filter function to be added at the end of the array.
      * @return {void}
      */
-
     _createClass(VASTParser, [{
       key: "addURLTemplateFilter",
       value: function addURLTemplateFilter(filter) {
@@ -3068,12 +3060,12 @@
   }(EventEmitter);
 
   var storage = null;
+
   /**
    * This Object represents a default storage to be used in case no other storage is available.
    * @constant
    * @type {Object}
    */
-
   var DEFAULT_STORAGE = {
     data: {},
     length: 0,
@@ -3093,13 +3085,13 @@
       this.length = 0;
     }
   };
+
   /**
    * This class provides an wrapper interface to the a key-value storage.
    * It uses localStorage, sessionStorage or a custom storage if none of the two is available.
    * @export
    * @class Storage
    */
-
   var Storage = /*#__PURE__*/function () {
     /**
      * Creates an instance of Storage.
@@ -3216,7 +3208,6 @@
    * @export
    * @class VASTClient
    */
-
   var VASTClient = /*#__PURE__*/function () {
     /**
      * Creates an instance of VASTClient.
@@ -3361,8 +3352,8 @@
    * @constant
    * @type {Number}
    */
-
   var DEFAULT_SKIP_DELAY = -1;
+
   /**
    * This class provides methods to track an ad execution.
    *
@@ -3370,7 +3361,6 @@
    * @class VASTTracker
    * @extends EventEmitter
    */
-
   var VASTTracker = /*#__PURE__*/function (_EventEmitter) {
     _inherits(VASTTracker, _EventEmitter);
 
@@ -4156,5 +4146,4 @@
   exports.VASTTracker = VASTTracker;
 
   Object.defineProperty(exports, '__esModule', { value: true });
-
 })));
